@@ -4,7 +4,7 @@
 
 str=input("Enter any string: ")
 
-if str.startswith("not poor"):
+if "not poor" in str:
     str1=str.replace("not poor","good").lower()
     print(str1)
 else:
