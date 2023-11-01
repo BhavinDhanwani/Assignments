@@ -1,6 +1,6 @@
 # Write a Python program to get the Fibonacci series of given range.
 
-num=int(input("Enter any number to see fibonacci series."))
+num=int(input("Enter any number to see fibonacci series : "))
 
 a=0
 b=1
