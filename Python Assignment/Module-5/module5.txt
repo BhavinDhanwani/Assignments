@@ -1,0 +1,93 @@
+1) Why Django should be used for web-development? Explain how you can create a project in Django?
+
+==> 	Django is the best framework for web applications, as it allows developers to use modules for faster development.
+     As a developer, you can make use of these modules to create apps, websites from an existing source. It speeds up the
+     development process greatly, as you do not have to code everything from scratch.
+
+	
+	1. Install Django: pip install django
+	2. Create a project: django-admin startproject yourproject
+	3. Navigate to the project directory: cd yourproject
+	4. Create an app: python manage.py startapp yourapp
+	5. Configure the database in settings.py.
+	6. Apply migrations: python manage.py migrate
+	7. (Optional) Create a superuser: python manage.py createsuperuser
+	8. Run the development server: python manage.py runserver
+	9. Develop your app by editing files in the app directory.
+
+2) How to check installed version of django?
+
+==>	Simply type python -m django --version or type pip freeze to see all the versions of installed modules including
+	Django.
+
+3) Explain what does django-admin.py make messages command is used for?
+
+==>	The django-admin.py makemessages command in Django is used for creating or updating translation files. It scans 
+	your project for text marked for translation, generating files that can be translated into different languages for
+	internationalization and localization.
+
+4) What is Django URLs?make program to create django urls
+
+==>	URLconf is a set of patterns that Django will try to match the requested URL to find the correct view.
+	
+	# urls.py
+
+	from django.urls import path
+	from . import views
+
+	urlpatterns = [
+   		path('', views.home, name='home'),
+   		path('about/', views.about, name='about'),
+   		path('contact/', views.contact, name='contact'),
+	]
+
+	
+	# views.py
+
+	from django.shortcuts import render
+
+	def home(request):
+   	  return render(request, 'yourapp/home.html')
+
+	def about(request):
+   	   return render(request, 'yourapp/about.html')
+
+	def contact(request):
+           return render(request, 'yourapp/contact.html')
+
+5)What is a QuerySet?Write program to create a new Post object in database:
+
+==>	In Django, a QuerySet is a representation of a database query. It allows you to interact with the database by providing an
+	abstraction over the SQL queries. QuerySets are used to retrieve, filter, and manipulate data from a database table.
+
+	Key points about QuerySets:
+
+	1)Lazy Evaluation
+	2)Chaining Methods
+	3)ORM Integration
+	4)Caching
+	
+	===
+	# Assuming you have a models.py file with a Post model defined
+	from myapp.models import Post
+
+	# Create a new Post object
+	new_post = Post()
+
+	# Set attributes for the Post object
+	new_post.title = "My First Post"
+	new_post.content = "This is the content of my first post."
+	new_post.author = "John Doe"
+
+	# Save the Post object to the database
+	new_post.save()
+
+6) Mention what command line can be used to load data into Django?
+
+==>	To load data into Django you have to use the command line Django-admin.py loaddata. The command line will searches the data 
+	and loads the contents of the named fixtures into the database.
+
+7) Explain what does django-admin.py make messages command is used for?
+
+==>	makemessages Runs over the entire source tree of the current directory and pulls out all strings marked for translation. It 
+	creates (or updates) a message file in the conf/locale (in the Django tree) or locale (for project and application) directory.

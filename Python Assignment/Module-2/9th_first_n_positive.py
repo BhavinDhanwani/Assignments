@@ -4,4 +4,4 @@ n=int(input("Enter number:- "))
 
 b=n+1
 c=n*b/2
-print("N positive integers.",c)
+print("N positive integers :",c)

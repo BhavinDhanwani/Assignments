@@ -47,6 +47,7 @@ while flag:
             # print("~"*30)
         status=True
         cart={}
+        total_bill = 0  # Initialize the total bill
         while status:
             if product=={}:
                 print("Sorry, No Products Available Right Now.")
@@ -54,11 +55,14 @@ while flag:
             else:
                 prd=input("What do you want to buy? : ").lower()
                 if prd in product:
-                    prd = cart
-                    print(cart)
+                    print(f"You selected : {prd} - 1 kg price is INR {product[prd]['price']}")
                     qty=int(input("Enter quantity : "))
-                    if qty in product_qty:
+                    if qty > product[prd]['qty']:
                         print("Stock out")
+
+                    # Calculate the cost for the current item and add it to the total bill
+                    item_cost = qty * product[prd]['price']
+                    total_bill += item_cost
                     choice=input("Do you want something else? ").lower()
                     if choice=='y' or choice=='yes':
                         status=True
@@ -66,7 +70,10 @@ while flag:
                         status=False
                 else:
                     print(f"{prd} is not available.")
+
+            for item, details in cart.items():
+                print(f"{details['Product Name']} - Quantity: {details['Quantity =']}")
+
+            print(f"Total Bill: INR {total_bill}") # Display the total bill.
     else:
         print("Invalid Input enter 1 or 2 only.")
-
-    # not working properly have to work.
